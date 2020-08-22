@@ -33,13 +33,14 @@ exports.itt2srt = async function (source, destination) {
     var stream = fs.createWriteStream(destination, { flags: 'w' });
 
     parseString(source, function (err, result) {
+        const frameRate = result.tt["$"]["ttp:frameRate"];
         const lines = result.tt.body[0].div[0].p;
         stream.once('open', function (fd) {
             for (let line of lines) {
                 stream.write(lineNumber.toString());
                 stream.write('\n');
-                let begin = _frameToMilisecond(line["$"].begin, 24);
-                let end = _frameToMilisecond(line["$"].end, 24);
+                let begin = _frameToMilisecond(line["$"].begin, parseInt(frameRate));
+                let end = _frameToMilisecond(line["$"].end, parseInt(frameRate));
                 stream.write(`${begin} --> ${end}`);
                 stream.write('\n');
                 let text = line["_"];

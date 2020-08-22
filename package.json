@@ -1,6 +1,6 @@
 {
   "name": "subtitle-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert and manipulate subtitle files",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,12 @@
     "url": "https://github.com/Kianrad/subtitle-util.git"
   },
   "author": "Kianrad",
+  "keywords": [
+    "subtitle",
+    "itt",
+    "srt",
+    "iTunes Timed Text"
+  ],
   "license": "ISC",
   "dependencies": {
     "xml2js": "^0.4.23"
