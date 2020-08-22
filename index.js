@@ -32,7 +32,7 @@ exports.itt2srt = async function (source, destination) {
     file = file.replace(/<br\/>/g, '\n');
     var stream = fs.createWriteStream(destination, { flags: 'w' });
 
-    parseString(source, function (err, result) {
+    parseString(file, function (err, result) {
         const frameRate = result.tt["$"]["ttp:frameRate"];
         const lines = result.tt.body[0].div[0].p;
         stream.once('open', function (fd) {
