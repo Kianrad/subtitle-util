@@ -25,7 +25,7 @@ const _frameToMilisecond = (time, framerate) => {
     return result;
 }
 
-exports.convert = async function (source, destination) {
+exports.itt2srt = async function (source, destination) {
     let lineNumber = 1;
     if (!fs.existsSync(source)) return Promise.reject("Source file not found!");
     let file = fs.readFileSync(source, "utf8");
